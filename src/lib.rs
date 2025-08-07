@@ -39,7 +39,7 @@ use triple_accel::levenshtein::levenshtein_simd_k;
 use serde::{Deserialize, Serialize};
 
 /// The simple search engine.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct SimSearch<Id>
 where
@@ -333,7 +333,7 @@ where
 /// let mut engine: SimSearch<usize> = SimSearch::new_with(
 ///     SearchOptions::new().case_sensitive(true));
 /// ```
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct SearchOptions {
     case_sensitive: bool,
